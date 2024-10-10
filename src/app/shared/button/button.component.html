@@ -1,5 +1,7 @@
-<!-- The other ng-content element, which does not have any configuration will then output any content, 
-that's not matched by some other ng-content element -->
-<span> <ng-content/></span>
-<!-- <span class="icon"> → </span> -->
- <ng-content select=".icon"></ng-content>
+<span>
+  <ng-content />
+</span>
+<span>
+  <ng-content select="icon"></ng-content>
+  <!-- <ng-content select=".icon"></ng-content> -->
+</span>
