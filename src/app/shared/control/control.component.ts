@@ -9,9 +9,9 @@ import { Component, input, ViewEncapsulation } from '@angular/core';
   encapsulation: ViewEncapsulation.None,
   //Host wants an object as a value, and that object takes key value pairs of your choice
   //So here I could add a key named class
-  host: {
-    class: 'control'
-  }
+  // host: {
+  //   class: 'control'
+  // }
 })
 export class ControlComponent {
   label = input.required<string>();
