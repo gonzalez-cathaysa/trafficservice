@@ -9,14 +9,36 @@ CSS class -->
 
 <!-- <div [class.status]="currentStatus === 'online'"> -->
 
+
+
+<!-- <div
+  [class]="{
+    status: true,
+    'status-online': currentStatus === 'online',
+    'status-offline': currentStatus === 'offline',
+    'status-unknown': currentStatus === 'unknown'
+  }"
+  [style]="{
+    fontSize: '64px'
+  }"
+> -->
+
+<!-- <div
+  [class]="{
+    status: true,
+    'status-online': currentStatus === 'online',
+    'status-offline': currentStatus === 'offline',
+    'status-unknown': currentStatus === 'unknown'
+  }"
+  [style.fontSize]="'64px'"
+> -->
 <div
   [class]="{
-        status: true,
-        'status-online': currentStatus === 'online',
-        'status-offline': currentStatus === 'offline',
-        'status-unknown': currentStatus ==='unknown'
-
-    }"
+    status: true,
+    'status-online': currentStatus === 'online',
+    'status-offline': currentStatus === 'offline',
+    'status-unknown': currentStatus === 'unknown'
+  }"
 >
   @if (currentStatus === 'online') {
   <p>Servers are online</p>
