@@ -1,4 +1,4 @@
-import { Component, HostBinding, HostListener, input, ViewEncapsulation } from '@angular/core';
+import { Component, ElementRef, HostBinding, HostListener, inject, input, ViewEncapsulation } from '@angular/core';
 
 @Component({
   selector: 'app-control',
@@ -11,7 +11,7 @@ import { Component, HostBinding, HostListener, input, ViewEncapsulation } from '
   //So here I could add a key named class
   host: {
     class: 'control',
-    //'(click)': 'onClick()'
+    '(click)': 'onClick()'
   }
 })
 export class ControlComponent {
@@ -21,13 +21,22 @@ export class ControlComponent {
   // @HostListener()
   // @HostBinding('class') className = 'control';
 
-  @HostListener('click') onClick() {
-    console.log('Clicked');
-  }
+  // @HostListener('click') onClick() {
+  //   console.log('Clicked');
+  // }
 
   label = input.required<string>();
 
-  // onClick(){
-  //   console.log('Clicked');
-  // }
+  //ElementRef which defines reference to some element
+  //that's rendered to the page
+  //It's pretty generic because it can refer to any element on the page
+  //Angular will give you access to the host element
+  private el =inject(ElementRef);
+
+  
+
+  onClick(){
+    console.log('Clicked');
+    console.log(this.el);
+  }
 }
