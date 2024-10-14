@@ -1,7 +1,23 @@
 <!-- If it is on that div where I wanna add some clause conditionally You can bind a
 class conditionally or set a value dynamic with A class binding Now the class
 will be apply to that div if that condition exists -->
-<div [class.status]="currentStatus === 'online'">
+
+<!-- We can use a different syntax that you can also use a different syntax that
+allows you to dynamically control multiple classes simultaneously And this
+object can now contain multiple key value pairs where every key represents one
+CSS class -->
+
+<!-- <div [class.status]="currentStatus === 'online'"> -->
+
+<div
+  [class]="{
+        status: true,
+        'status-online': currentStatus === 'online',
+        'status-offline': currentStatus === 'offline',
+        'status-unknown': currentStatus ==='unknown'
+
+    }"
+>
   @if (currentStatus === 'online') {
   <p>Servers are online</p>
   <p>All systems are operational.</p>
