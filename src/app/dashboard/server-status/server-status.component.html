@@ -1,12 +1,15 @@
-<!-- <div id="status"> -->
-@if (currentStatus === 'online') {
-<p>Servers are online</p>
-<p>All systems are operational.</p>
-} @else if (currentStatus === 'offline') {
-<p>Servers are offline</p>
-<p>Functionality should be restored soon.</p>
-} @else {
-<p>Server status is unknown</p>
-<p>Fetching server status failed.</p>
-}
-<!-- </div> -->
+<!-- If it is on that div where I wanna add some clause conditionally You can bind a
+class conditionally or set a value dynamic with A class binding Now the class
+will be apply to that div if that condition exists -->
+<div [class.status]="currentStatus === 'online'">
+  @if (currentStatus === 'online') {
+  <p>Servers are online</p>
+  <p>All systems are operational.</p>
+  } @else if (currentStatus === 'offline') {
+  <p>Servers are offline</p>
+  <p>Functionality should be restored soon.</p>
+  } @else {
+  <p>Server status is unknown</p>
+  <p>Fetching server status failed.</p>
+  }
+</div>
