@@ -1,14 +1,31 @@
+<!-- Then I could access all the methods or properties of my component instance 
+here when working with that template variable -->
+<!-- <form action="" (ngSubmit)="onSubmit(titleInput.value, textInput.value, titleInput, ctrl)"> -->
 <form action="" (ngSubmit)="onSubmit(titleInput.value, textInput.value)">
   <app-control class="control" label="Title">
-    <input name="title" id="title" #titleInput/>
+    <input name="title" id="title" #titleInput />
   </app-control>
-  <app-control class="control" label="Request">
+  <!-- If I would place it one of my app control items that 
+  it would be that instance (reference) ctrl: ControlComponent -->
+
+  <app-control class="control" label="Request" #ctrl>
     <textarea name="request" id="request" row="3" #textInput></textarea>
   </app-control>
   <p>
-    <button appButton>
+    <!-- #btn is stored in that variable is button component (not HTML button element)   -->
+    <!-- <button appButton #btn> -->
+    <!-- If I would not have this appButton attribute on the button, 
+     which turn into an instance of my button component -->
+    <!-- The component instance is stored as a value in that template variable 
+     (reference) btn: ButtonComponent -->
+    <button #btn>
       Submit
       <span ngProjectAs="icon">→</span>
     </button>
+    <!-- But if I add the attribute Angular takes over control of that 
+     button and in the end, and turns it into an instance of my button component -->
   </p>
 </form>
+
+<!-- By default you get access to the dom element, but if you are putting the 
+ template variable on one of your components, then you get access to the component instance instead -->
